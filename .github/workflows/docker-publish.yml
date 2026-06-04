@@ -49,3 +49,6 @@ jobs:
           # x86(일반서버)과 ARM64(Mac, 우분투 데스크탑 ARM 등) 지원하도록 설정
           platforms: linux/amd64,linux/arm64
           tags: ${{ secrets.DOCKER_USERNAME }}/deploy004_springboot:latest
+
+      - name: Check structure
+        run: ls -la
