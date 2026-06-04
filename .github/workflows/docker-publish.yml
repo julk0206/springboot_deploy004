@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./deploy004_springboot/Dockerfile
+          file: ./Dockerfile
           push: true
           # x86(일반서버)과 ARM64(Mac, 우분투 데스크탑 ARM 등) 지원하도록 설정
           platforms: linux/amd64,linux/arm64
