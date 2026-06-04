@@ -21,7 +21,8 @@ jobs:
 
       # 1. Maven Build (Jar파일 생성)
       - name: Build with Maven
-        run: mvn clean package -DskipTests -f ./deploy004_springboot/pom.xml
+        working-directory: ./deploy004_springboot
+        run: mvn clean package -DskipTests
 
       # 2. 다른 아키텍처 (ARM64 등) 빌드를 위한 QEMU(Quick Emulator)
       - name: Set up QEMU
@@ -42,7 +43,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./deploy004_springboot
           file: ./deploy004_springboot/Dockerfile
           push: true
           # x86(일반서버)과 ARM64(Mac, 우분투 데스크탑 ARM 등) 지원하도록 설정
